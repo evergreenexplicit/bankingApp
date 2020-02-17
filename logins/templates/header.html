@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bank</title>
+
+  {% load static %}
+  <style>
+
+    .main-header {
+
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+    }
+
+    .main-header a {
+      text-decoration: none;
+      color: #fab;
+      font-size: 50px;
+      margin-right: 20px;
+    }
+
+ 
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <header class="main-header">
+      <a href="/">
+        <h1>
+          WPPT Inc. Prosperity Handling
+        </h1>
+      </a>
+
+    </header>
+    <center>
+      {% block content %}
+      {% endblock %}
+    </center>
+
+  </div>
+  
+</body>
+</html>

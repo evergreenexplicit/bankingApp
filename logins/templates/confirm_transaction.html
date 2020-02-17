@@ -1,0 +1,15 @@
+
+{% extends 'header.html' %}
+
+{% block content %}
+<h3>Are you sure?</h3>
+<p>You're about to send {{transaction.moneyValue}} to {{transaction.receiver}}</p>
+<form action="/new_transaction/confirm" method="POST">
+  {% csrf_token %}
+  <input type="text" value="{{transaction.receiver}}" name="receiver" style="display:none">
+  <input type="number" value="{{transaction.moneyValue}}" name="moneyValue" style="display:none">
+  <button type="submit" class="btn btn-primary">Send</button>
+  <a class="btn btn-danger" href="/menu">Stop transaction</a>
+</form>
+
+{% endblock %}

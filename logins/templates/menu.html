@@ -1,0 +1,32 @@
+{% extends 'header.html' %}
+
+{% block content %}
+{% csrf_token %}
+<p>Monies: {{ user.bankuser.money }}</p>
+<a href="/new_transaction"> New transaction</a>
+<h2>
+    Your transaction history
+  </h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Date</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.sender.user.username }}</td>
+        <td>{{ transaction.receiver.user.username }}</td>
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.moneyValue }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+{% endblock %}

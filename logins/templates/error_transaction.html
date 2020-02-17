@@ -1,0 +1,9 @@
+{% extends 'header.html' %}
+
+{% block content %}
+{% csrf_token %}
+<h3>Error</h3>
+<p>{{error}}</p>
+<a href="/new_transaction">Try again</a>
+
+{% endblock %}
